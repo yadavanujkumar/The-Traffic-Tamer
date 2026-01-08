@@ -1,0 +1,85 @@
+# Traffic Simulation Configuration
+
+simulation:
+  # Grid settings
+  grid_width: 10
+  grid_height: 10
+  num_intersections: 16
+  
+  # Traffic settings
+  traffic_density: 'medium'  # Options: 'low', 'medium', 'high', 'rush_hour', 'midnight'
+  density_config:
+    low: 0.2
+    medium: 0.5
+    high: 0.8
+    rush_hour: 0.95
+    midnight: 0.1
+  
+  # Road settings
+  road_capacity: 10
+  base_speed: 5.0
+  
+  # Simulation parameters
+  max_steps: 1000
+  num_episodes: 100
+  
+  # Agent settings
+  num_vehicles: 50
+  spawn_rate: 0.1
+  
+  # Traffic light settings
+  traffic_light_cycle: 30
+  green_duration: 15
+  yellow_duration: 3
+
+agents:
+  # Selfish Agent (Nash Equilibrium)
+  selfish:
+    strategy: 'nash'
+    algorithm: 'dijkstra'  # Options: 'dijkstra', 'astar'
+    recalculate_frequency: 10
+  
+  # Cooperative Agent (Social Optimum)
+  cooperative:
+    strategy: 'social'
+    algorithm: 'marl'  # Options: 'qlearning', 'ppo'
+    learning_rate: 0.001
+    discount_factor: 0.99
+    epsilon_start: 1.0
+    epsilon_min: 0.01
+    epsilon_decay: 0.995
+
+analytics:
+  # Price of Anarchy calculation
+  calculate_poa: true
+  poa_window: 100
+  
+  # Braess's Paradox detection
+  detect_braess: true
+  braess_threshold: 1.1  # Efficiency decrease threshold
+  
+  # Metrics tracking
+  track_wait_time: true
+  track_fuel_consumption: true
+  track_throughput: true
+
+visualization:
+  # Display settings
+  mode: 'streamlit'  # Options: 'pygame', 'streamlit'
+  window_width: 1200
+  window_height: 800
+  fps: 30
+  
+  # Colors
+  colors:
+    road: [100, 100, 100]
+    intersection: [80, 80, 80]
+    selfish_agent: [255, 0, 0]
+    cooperative_agent: [0, 255, 0]
+    traffic_light_red: [255, 0, 0]
+    traffic_light_green: [0, 255, 0]
+    traffic_light_yellow: [255, 255, 0]
+  
+  # Metrics dashboard
+  show_metrics: true
+  update_frequency: 1  # Updates per second
