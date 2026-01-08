@@ -1,0 +1,21 @@
+# Core Dependencies
+numpy>=1.24.0
+pandas>=2.0.0
+
+# Reinforcement Learning
+ray[rllib]>=2.7.0
+gym>=0.26.0
+pettingzoo>=1.24.0
+
+# Visualization
+pygame>=2.5.0
+streamlit>=1.28.0
+matplotlib>=3.7.0
+seaborn>=0.12.0
+plotly>=5.17.0
+
+# Graph Algorithms
+networkx>=3.1
+
+# Configuration
+pyyaml>=6.0
